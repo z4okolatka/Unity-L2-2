@@ -1,21 +1,21 @@
 using System;
 using UnityEngine;
 
-public class unhook : MonoBehaviour
+public class RopeUnhooker : MonoBehaviour
 {
+    [SerializeField] KeyCode Key;
     private HingeJoint2D _joint;
     
     private void Start()
     {
         _joint = GetComponent<HingeJoint2D>();
     }
-
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(Key))
         {
-            Destroy(_joint);
+            _joint.enabled = false;
         }    
     }
 }
